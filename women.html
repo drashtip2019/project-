@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VogueWear - Discover premium fashion for every season with timeless style and exceptional quality.">
+    <title>Indian Women's Collection | VogueWear</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="mouse-glow"></div>
+    <div class="scroll-progress-container"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">VogueWear</a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#new-arrivals">New Arrivals</a>
+                <a href="women.html">Women</a>
+                <a href="men.html">Men</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="sale.html" class="nav-sale">Sale</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-icons">
+                <button aria-label="Search" class="icon-btn"><i data-lucide="search"></i></button>
+                <button aria-label="Wishlist" class="icon-btn"><i data-lucide="heart"></i><span class="badge">3</span></button>
+                <button aria-label="Cart" class="icon-btn"><i data-lucide="shopping-bag"></i><span class="badge">2</span></button>
+                <button aria-label="Profile" class="icon-btn"><i data-lucide="user"></i></button>
+                <button class="nav-cta">Shop Now</button>
+                <button aria-label="Menu" class="icon-btn mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main>
+        <section class="page-header" style="margin-top: 80px; position: relative; height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: var(--primary);">
+            <img src="https://loremflickr.com/1920/600/fashion,woman" alt="Women's Collection" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 0;"></div>
+            <div class="container text-center" style="position: relative; z-index: 1; color: white;">
+                <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem;">Indian Women's Collection</h1>
+                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">Discover traditional Indian wear - Sarees, Kurtis, Lehengas, and more.</p>
+            </div>
+        </section>
+        <section class="section-padding bg-soft">
+            <div class="container">
+                <div class="product-grid" id="productGrid"></div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>VogueWear</h2>
+                    <p>Elevating everyday style with premium, timeless fashion pieces designed for the modern individual.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Women's Collection</a></li>
+                        <li><a href="#">Men's Collection</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Shoes & Bags</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Our Journal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 VogueWear. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

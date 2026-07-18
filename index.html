@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VogueWear - Discover premium fashion for every season with timeless style and exceptional quality.">
+    <title>VogueWear | Premium Fashion</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mouse Glow -->
+    <div class="mouse-glow"></div>
+    
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollBar"></div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-content">
+            <h1 class="loader-logo">VogueWear</h1>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">VogueWear</a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#new-arrivals">New Arrivals</a>
+                <a href="women.html">Women</a>
+                <a href="men.html">Men</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="sale.html" class="nav-sale">Sale</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-icons">
+                <button aria-label="Search" class="icon-btn"><i data-lucide="search"></i></button>
+                <button aria-label="Wishlist" class="icon-btn"><i data-lucide="heart"></i><span class="badge">3</span></button>
+                <button aria-label="Cart" class="icon-btn"><i data-lucide="shopping-bag"></i><span class="badge">2</span></button>
+                <button aria-label="Profile" class="icon-btn"><i data-lucide="user"></i></button>
+                <button class="nav-cta">Shop Now</button>
+                <button aria-label="Menu" class="icon-btn mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg" style="background-color: var(--primary);">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" alt="Fashion model" class="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-badge" style="animation: fadeIn 1s ease-out;">Up to 60% OFF</span>
+                <h1 class="hero-title" style="animation: fadeIn 1s ease-out 0.2s both;">Wear Your <br>Confidence</h1>
+                <p class="hero-subtitle" style="animation: fadeIn 1s ease-out 0.4s both;">Discover premium fashion for every season with timeless style and exceptional quality.</p>
+                <div class="hero-buttons" style="animation: fadeIn 1s ease-out 0.6s both;">
+                    <a href="#shop" class="btn btn-primary">Shop Now</a>
+                    <a href="#collection" class="btn btn-outline">Explore Collection</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Offer -->
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span>Free Shipping Worldwide</span>
+                <span class="marquee-dot"></span>
+                <span>Summer Sale: 30% Off</span>
+                <span class="marquee-dot"></span>
+                <span>New Arrivals Just Landed</span>
+                <span class="marquee-dot"></span>
+                <span>Free Shipping Worldwide</span>
+                <span class="marquee-dot"></span>
+                <span>Summer Sale: 30% Off</span>
+                <span class="marquee-dot"></span>
+                <span>New Arrivals Just Landed</span>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <section class="categories section-padding" id="categories">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <p class="section-desc">Find exactly what you're looking for</p>
+                </div>
+                
+                <div class="category-grid">
+                    <a href="women.html" class="category-card reveal-up" style="transition-delay: 0.1s;">
+                        <img src="https://loremflickr.com/600/800/fashion,woman" alt="Women">
+                        <div class="category-info">
+                            <h3>Women</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="men.html" class="category-card reveal-up" style="transition-delay: 0.2s;">
+                        <img src="https://loremflickr.com/600/800/fashion,man" alt="Men">
+                        <div class="category-info">
+                            <h3>Men</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="accessories.html" class="category-card reveal-up" style="transition-delay: 0.3s;">
+                        <img src="https://loremflickr.com/600/800/fashion,kids" alt="Kids">
+                        <div class="category-info">
+                            <h3>Kids</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="accessories.html" class="category-card reveal-up" style="transition-delay: 0.4s;">
+                        <img src="https://loremflickr.com/600/800/shoes,luxury" alt="Shoes">
+                        <div class="category-info">
+                            <h3>Shoes</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="accessories.html" class="category-card reveal-up" style="transition-delay: 0.5s;">
+                        <img src="https://loremflickr.com/600/800/handbag,luxury" alt="Bags">
+                        <div class="category-info">
+                            <h3>Bags</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                    <a href="accessories.html" class="category-card reveal-up" style="transition-delay: 0.6s;">
+                        <img src="https://loremflickr.com/600/800/watch,luxury" alt="Watches">
+                        <div class="category-info">
+                            <h3>Watches</h3>
+                            <div class="category-icon"><i data-lucide="arrow-right"></i></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products section-padding bg-soft" id="new-arrivals">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">New Arrivals</h2>
+                    <p class="section-desc">The latest additions to our premium collection</p>
+                </div>
+                
+                <div class="product-grid" id="productGrid">
+                    <!-- Products injected via JS -->
+                </div>
+                
+                <div class="text-center reveal-up" style="margin-top: 3rem;">
+                    <a href="#" class="btn btn-outline">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Banner -->
+        <section class="trending">
+            <div class="trending-container">
+                <div class="trending-box reveal-left">
+                    <img src="https://loremflickr.com/800/1000/autumn,fashion" alt="Autumn Collection">
+                    <div class="trending-content">
+                        <span>New Season</span>
+                        <h2>Autumn Collection</h2>
+                        <a href="women.html" class="btn-link">Shop Now</a>
+                    </div>
+                </div>
+                <div class="trending-box reveal-right">
+                    <img src="https://loremflickr.com/800/1000/basic,clothing" alt="Essential Basics">
+                    <div class="trending-content">
+                        <span>Must Haves</span>
+                        <h2>Essential Basics</h2>
+                        <a href="men.html" class="btn-link">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sale -->
+        <section class="flash-sale section-padding" id="sale">
+            <div class="container">
+                <div class="flash-sale-wrapper reveal-up">
+                    <div class="flash-image">
+                        <img src="https://loremflickr.com/800/1000/sale,fashion" alt="Flash Sale">
+                    </div>
+                    <div class="flash-content">
+                        <div class="flash-badge">Limited Time Offer</div>
+                        <h2>Exclusive Flash Sale</h2>
+                        <p>Get up to 70% off on selected premium items. Offer valid while stocks last.</p>
+                        
+                        <div class="countdown" id="countdown">
+                            <div class="time-box">
+                                <span id="days">02</span>
+                                <label>Days</label>
+                            </div>
+                            <span class="colon">:</span>
+                            <div class="time-box">
+                                <span id="hours">14</span>
+                                <label>Hours</label>
+                            </div>
+                            <span class="colon">:</span>
+                            <div class="time-box">
+                                <span id="minutes">45</span>
+                                <label>Mins</label>
+                            </div>
+                            <span class="colon">:</span>
+                            <div class="time-box">
+                                <span id="seconds">30</span>
+                                <label>Secs</label>
+                            </div>
+                        </div>
+                        
+                        <div class="stock-indicator">
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 75%;"></div>
+                            </div>
+                            <span>Only 24 items left!</span>
+                        </div>
+                        
+                        <a href="sale.html" class="btn btn-primary">Grab the Deal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features section-padding bg-soft">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-desc">Experience the best in online luxury shopping</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card reveal-up" style="transition-delay: 0.1s;">
+                        <div class="feature-icon"><i data-lucide="award"></i></div>
+                        <h3>Premium Quality</h3>
+                        <p>Every piece is crafted with the highest attention to detail and materials.</p>
+                    </div>
+                    <div class="feature-card reveal-up" style="transition-delay: 0.2s;">
+                        <div class="feature-icon"><i data-lucide="truck"></i></div>
+                        <h3>Fast Delivery</h3>
+                        <p>Express worldwide shipping directly to your doorstep in days.</p>
+                    </div>
+                    <div class="feature-card reveal-up" style="transition-delay: 0.3s;">
+                        <div class="feature-icon"><i data-lucide="refresh-cw"></i></div>
+                        <h3>Easy Returns</h3>
+                        <p>30-day hassle-free return policy for your complete peace of mind.</p>
+                    </div>
+                    <div class="feature-card reveal-up" style="transition-delay: 0.4s;">
+                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Secure Payments</h3>
+                        <p>State of the art encryption ensures your transactions are safe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Client Stories</h2>
+                    <p class="section-desc">What our premium customers have to say</p>
+                </div>
+                
+                <div class="testimonial-slider reveal-up">
+                    <div class="testimonial-content active">
+                        <div class="stars">
+                            <i data-lucide="star" class="filled"></i>
+                            <i data-lucide="star" class="filled"></i>
+                            <i data-lucide="star" class="filled"></i>
+                            <i data-lucide="star" class="filled"></i>
+                            <i data-lucide="star" class="filled"></i>
+                        </div>
+                        <p class="quote">"The quality of the clothing is absolutely unmatched. The fit is perfect, and the customer service was incredibly helpful when I had questions. VogueWear is now my go-to for elegant fashion."</p>
+                        <div class="author">
+                            <img src="https://loremflickr.com/150/150/face,portrait" alt="Sarah J.">
+                            <div>
+                                <h4>Sarah J.</h4>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-controls">
+                        <button class="t-btn active"></button>
+                        <button class="t-btn"></button>
+                        <button class="t-btn"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Gallery -->
+        <section class="instagram section-padding bg-soft">
+            <div class="container-fluid">
+                <div class="section-header text-center reveal-up">
+                    <h2 class="section-title">@VogueWear</h2>
+                    <p class="section-desc">Follow us on Instagram for daily inspiration</p>
+                </div>
+                
+                <div class="insta-grid">
+                    <a href="#" class="insta-item reveal-up" style="transition-delay: 0.1s;">
+                        <img src="https://loremflickr.com/400/400/fashion,model" alt="Insta 1">
+                        <div class="insta-overlay"><i data-lucide="instagram"></i></div>
+                    </a>
+                    <a href="#" class="insta-item reveal-up" style="transition-delay: 0.2s;">
+                        <img src="https://loremflickr.com/400/400/fashion,accessories" alt="Insta 2">
+                        <div class="insta-overlay"><i data-lucide="instagram"></i></div>
+                    </a>
+                    <a href="#" class="insta-item reveal-up" style="transition-delay: 0.3s;">
+                        <img src="https://loremflickr.com/400/400/fashion,shoes" alt="Insta 3">
+                        <div class="insta-overlay"><i data-lucide="instagram"></i></div>
+                    </a>
+                    <a href="#" class="insta-item reveal-up" style="transition-delay: 0.4s;">
+                        <img src="https://loremflickr.com/400/400/fashion,bag" alt="Insta 4">
+                        <div class="insta-overlay"><i data-lucide="instagram"></i></div>
+                    </a>
+                    <a href="#" class="insta-item reveal-up" style="transition-delay: 0.5s;">
+                        <img src="https://loremflickr.com/400/400/fashion,jewelry" alt="Insta 5">
+                        <div class="insta-overlay"><i data-lucide="instagram"></i></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter reveal-up">
+            <div class="container">
+                <div class="newsletter-inner">
+                    <div class="newsletter-content">
+                        <h2>Join The Club</h2>
+                        <p>Subscribe to our newsletter and get 15% off your first order, plus early access to new collections.</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                        <div class="success-message" id="successMsg">Thanks for subscribing! Check your inbox.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>VogueWear</h2>
+                    <p>Elevating everyday style with premium, timeless fashion pieces designed for the modern individual.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Women's Collection</a></li>
+                        <li><a href="#">Men's Collection</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Shoes & Bags</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Our Journal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 VogueWear. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
