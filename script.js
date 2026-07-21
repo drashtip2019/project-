@@ -400,57 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const productGrid = document.getElementById('productGrid');
-    if (productGrid) {
-        filteredProducts.forEach((product, index) => {
-            const delay = index * 0.1;
-            let badgeHtml = '';
-            if (product.badge) {
-                const badgeClass = product.badge.toLowerCase() === 'sale' ? 'sale' : '';
-                badgeHtml = `<div class="product-badge ${badgeClass}">${product.badge}</div>`;
-            }
-            
-            let priceHtml = '';
-            if (product.oldPrice) {
-                priceHtml = `<span class="product-price discounted">$${product.price.toFixed(2)}</span>
-                             <span class="product-price-old">$${product.oldPrice.toFixed(2)}</span>`;
-            } else {
-                priceHtml = `<span class="product-price">$${product.price.toFixed(2)}</span>`;
-            }
-
-            const card = document.createElement('div');
-            card.className = `product-card`;
-            
-            card.innerHTML = `
-                ${badgeHtml}
-                <div class="product-image-container">
-                    <img src="${product.img1}" alt="${product.name}" class="product-image">
-                    <img src="${product.img2}" alt="${product.name}" class="product-image-hover">
-                    <div class="product-actions">
-                        <button class="action-btn" aria-label="Add to Wishlist"><i data-lucide="heart"></i></button>
-                        <button class="action-btn" aria-label="Quick View"><i data-lucide="eye"></i></button>
-                        <button class="action-btn" aria-label="Add to Cart"><i data-lucide="shopping-bag"></i></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">${product.brand}</div>
-                    <h3 class="product-title">${product.name}</h3>
-                    <div class="product-rating">
-                        <i data-lucide="star" class="filled"></i>
-                        <i data-lucide="star" class="filled"></i>
-                        <i data-lucide="star" class="filled"></i>
-                        <i data-lucide="star" class="filled"></i>
-                        <i data-lucide="star" class="filled"></i>
-                    </div>
-                    <div class="product-price-row">
-                        ${priceHtml}
-                    </div>
-                </div>
-            `;
-            productGrid.appendChild(card);
-        });
-        // Re-initialize icons for newly added HTML
-        lucide.createIcons();
-    }
+    
+	
 
     // 7. Flash Sale Countdown
     const countdown = () => {
