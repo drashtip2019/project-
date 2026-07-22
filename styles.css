@@ -1629,3 +1629,27 @@ ul {
     padding: 10px;
     background: #fff;
 }
+.women-grid{
+	.product-card{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card h3{
+    font-size:22px;
+    margin-top:20px;
+}
+
+.product-card .price{
+    color:#d4a000;
+    font-size:22px;
+    font-weight:bold;
+}
