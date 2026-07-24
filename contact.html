@@ -1,29 +1,253 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VogueWear - Discover premium fashion for every season with timeless style and exceptional quality.">
-    <title>VogueWear | Premium Fashion</title>
-    
+    <meta name="description" content="VogueWear - Contact us for premium fashion support, orders, and inquiries.">
+    <title>VogueWear | Contact Us</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --primary: #151515;
+            --secondary: #f5f1ea;
+            --accent: #b68d40;
+            --text: #1f1f1f;
+            --muted: #707070;
+            --white: #fff;
+            --border: rgba(0,0,0,0.08);
+            --shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        body {
+            background: var(--secondary);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.55));
+            z-index: 0;
+        }
+
+        .page-header img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            margin: 0 0 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 4vw, 4rem);
+            color: var(--white);
+        }
+
+        .page-header p {
+            margin: 0;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.88);
+        }
+
+        .contact-section {
+            padding: 90px 20px;
+            background: linear-gradient(180deg, #f8f5ef 0%, #f6f0e6 100%);
+        }
+
+        .contact-wrapper {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .contact-left,
+        .contact-right {
+            background: var(--white);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 34px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-left h1,
+        .contact-right h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            margin-bottom: 14px;
+            color: var(--primary);
+        }
+
+        .contact-left p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-box:last-of-type {
+            border-bottom: none;
+        }
+
+        .contact-box .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(182, 141, 64, 0.12);
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-box h3 {
+            margin: 0 0 5px;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-box p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .social-icons {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        form label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 0.95rem;
+            outline: none;
+            background: #fcfbf9;
+            transition: 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(182, 141, 64, 0.12);
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-primary {
+            border: none;
+            background: linear-gradient(135deg, var(--primary), #272727);
+            color: var(--white);
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            width: fit-content;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="mouse-glow"></div>
     <div class="scroll-progress-container"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">VogueWear</a>
-            
+
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="index.html#new-arrivals">New Arrivals</a>
@@ -33,7 +257,7 @@
                 <a href="service.html" class="nav-service">Service</a>
                 <a href="contact.html">Contact</a>
             </div>
-            
+
             <div class="nav-icons">
                 <button aria-label="Search" class="icon-btn"><i data-lucide="search"></i></button>
                 <button aria-label="Wishlist" class="icon-btn"><i data-lucide="heart"></i><span class="badge">3</span></button>
@@ -45,22 +269,81 @@
         </div>
     </nav>
 
-    
     <main>
-        <section class="page-header" style="margin-top: 80px; position: relative; height: 300px; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: var(--primary);">
-            <img src="https://loremflickr.com/1920/600/contact,support" alt="Contact Us" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 0;"></div>
-            <div class="container text-center" style="position: relative; z-index: 1; color: white; animation: fadeIn 1s ease-out;">
-                <h1 style="font-size: 3.5rem; color: white; margin-bottom: 1rem;">Contact Us</h1>
-                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9);">We're here to help with any questions you may have.</p>
+        <section class="page-header">
+            <img src="https://loremflickr.com/1920/600/contact,support" alt="Contact Us">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>We're here to help with any questions, support requests, or styling guidance.</p>
             </div>
         </section>
-        <section class="section-padding bg-soft">
-            <div class="container">
-                <div class="product-grid" id="productGrid"></div>
+
+        <section class="contact-section">
+            <div class="contact-wrapper">
+                <div class="contact-left">
+                    <h1>Let’s Connect</h1>
+                    <p>
+                        Have questions about an order, need styling advice, or want to know more about our latest arrivals?
+                        We’d love to hear from you. Reach out anytime and our team will get back to you promptly.
+                    </p>
+
+                    <div class="contact-box">
+                        <div class="icon"><i data-lucide="map-pin"></i></div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Vadodara, Gujarat, India</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="icon"><i data-lucide="phone"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-box">
+                        <div class="icon"><i data-lucide="mail"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>vogueswear@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-right">
+                    <h1>Send Message</h1>
+                    <form>
+                        <label for="name">Full Name</label>
+                        <input id="name" type="text" placeholder="Enter your full name">
+
+                        <label for="email">Email Address</label>
+                        <input id="email" type="email" placeholder="Enter your email">
+
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" type="text" placeholder="Enter your phone number">
+
+                        <label for="subject">Subject</label>
+                        <input id="subject" type="text" placeholder="Enter subject">
+
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="6" placeholder="Write your message..."></textarea>
+
+                        <button type="button" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -75,7 +358,7 @@
                         <a href="#"><i data-lucide="youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Shop</h3>
                     <ul>
@@ -86,7 +369,7 @@
                         <li><a href="#">Sale Items</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Information</h3>
                     <ul>
@@ -97,7 +380,7 @@
                         <li><a href="#">Our Journal</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3>Customer Care</h3>
                     <ul>
@@ -109,7 +392,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 VogueWear. All rights reserved.</p>
                 <div class="legal-links">
@@ -132,4 +415,3 @@
     </script>
 </body>
 </html>
-
