@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VogueWear - Discover premium fashion for every season with timeless style and exceptional quality.">
+    <title>VogueWear | Product Details</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .size-btn {
+            width: 45px; height: 45px; 
+            border: 1px solid #ddd; background: white; 
+            border-radius: 8px; cursor: pointer; 
+            transition: 0.3s; font-weight: 500;
+        }
+        .size-btn:hover {
+            border-color: #333;
+        }
+        .qty-btn {
+            padding: 12px 15px; background: white; 
+            border: none; cursor: pointer; font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        .qty-btn:hover {
+            background: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .product-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mouse-glow"></div>
+    <div class="scroll-progress-container"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">VogueWear</a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#new-arrivals">New Arrivals</a>
+                <a href="women.html">Women</a>
+                <a href="men.html">Men</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="sale.html" class="nav-sale">Sale</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <div class="nav-icons">
+                <button aria-label="Search" class="icon-btn"><i data-lucide="search"></i></button>
+                <button aria-label="Wishlist" class="icon-btn"><i data-lucide="heart"></i><span class="badge">3</span></button>
+                <button aria-label="Cart" class="icon-btn"><i data-lucide="shopping-bag"></i><span class="badge">2</span></button>
+                <button aria-label="Profile" class="icon-btn"><i data-lucide="user"></i></button>
+                <button class="nav-cta">Shop Now</button>
+                <button aria-label="Menu" class="icon-btn mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+    
+    <main style="padding-top: 120px; padding-bottom: 80px;">
+        <div class="container">
+            <div class="product-details-grid">
+                <!-- Left: Image -->
+                <div class="product-details-image" style="background: #f4f5f6; border-radius: 12px; overflow: hidden; display: flex; justify-content: center; align-items: center; padding: 40px;">
+                    <img id="pd-image" src="https://loremflickr.com/600/800/fashion" alt="Product Image" style="max-width: 100%; height: auto; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                </div>
+
+                <!-- Right: Details -->
+                <div class="product-details-info">
+                    <div style="margin-bottom: 1rem; color: #666; font-size: 0.9rem;">
+                        <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> / <span id="pd-category">Products</span>
+                    </div>
+                    
+                    <h1 id="pd-title" style="font-size: 2.5rem; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; color: #1a1a1a;">Premium Product</h1>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem;">
+                        <span id="pd-price" style="font-size: 1.8rem; font-weight: 600; color: #1a1a1a;">₹0.00</span>
+                        <span id="pd-stock" style="color: #2e7d32; font-weight: 500; font-size: 0.9rem; background: #e8f5e9; padding: 4px 10px; border-radius: 20px;">In Stock</span>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <p style="margin-bottom: 10px; font-weight: 500; color: #444;">Select Size</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">XXL</button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: center; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background: white;">
+                            <button class="qty-btn" id="qty-minus">-</button>
+                            <input type="text" id="qty-input" value="1" style="width: 40px; text-align: center; border: none; font-weight: 600; font-size: 1.1rem; pointer-events: none; outline: none;">
+                            <button class="qty-btn" id="qty-plus">+</button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 3rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" style="flex: 1; min-width: 200px; padding: 15px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px;">
+                            <i data-lucide="shopping-bag"></i> Buy Now
+                        </button>
+                        <button class="btn btn-outline" style="flex: 1; min-width: 200px; padding: 15px; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px; background: #1a1a1a; color: white; border: none; border-radius: 8px; transition: background 0.3s;">
+                            <i data-lucide="shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+
+                    <div class="product-description" style="border-top: 1px solid #eee; padding-top: 25px;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #1a1a1a;">Product Details</h3>
+                        <p style="color: #666; line-height: 1.7; font-size: 1rem;">Experience premium quality and exceptional design with this exclusive item. Crafted with meticulous attention to detail, it offers a perfect blend of style and comfort. An essential addition to elevate your wardrobe and express your unique sense of fashion effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>VogueWear</h2>
+                    <p>Elevating everyday style with premium, timeless fashion pieces designed for the modern individual.</p>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">Women's Collection</a></li>
+                        <li><a href="#">Men's Collection</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Shoes & Bags</a></li>
+                        <li><a href="#">Sale Items</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Our Journal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 VogueWear. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const price = urlParams.get('price');
+            const img = urlParams.get('img');
+            
+            if (name) document.getElementById('pd-title').innerText = name;
+            if (price) {
+                const displayPrice = price.toString().includes('₹') ? price : `₹${price}`;
+                document.getElementById('pd-price').innerText = displayPrice;
+            }
+            if (img) document.getElementById('pd-image').src = img;
+
+            // Size button selection logic
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sizeBtns.forEach(b => {
+                        b.style.borderColor = '#ddd';
+                        b.style.color = '#333';
+                        b.style.background = 'white';
+                    });
+                    btn.style.borderColor = '#1a1a1a';
+                    btn.style.color = 'white';
+                    btn.style.background = '#1a1a1a';
+                });
+            });
+
+            // Quantity selector logic
+            const qtyInput = document.getElementById('qty-input');
+            const qtyMinus = document.getElementById('qty-minus');
+            const qtyPlus = document.getElementById('qty-plus');
+
+            qtyMinus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                if (currentVal > 1) {
+                    qtyInput.value = currentVal - 1;
+                }
+            });
+
+            qtyPlus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value);
+                if (currentVal < 10) {
+                    qtyInput.value = currentVal + 1;
+                }
+            });
+            
+            // Add hover effect dynamically to the dark Add to Cart button
+            const addToCartBtn = document.querySelector('.btn-outline[style*="background: #1a1a1a"]');
+            if(addToCartBtn) {
+                addToCartBtn.addEventListener('mouseenter', () => {
+                    addToCartBtn.style.background = '#333';
+                });
+                addToCartBtn.addEventListener('mouseleave', () => {
+                    addToCartBtn.style.background = '#1a1a1a';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
