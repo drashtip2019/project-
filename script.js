@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "name": "Traditional Gold-Plated Bangles Set",
         "price": 499,
         "oldPrice": 699,
-        "img1": "https://loremflickr.com/600/800/bangles,gold",
-        "img2": "https://loremflickr.com/600/800/bangles,traditional",
+        "img1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPowLnD-BNUuZ82YrfC1WvUe-NmuzXgHvHptAe45fU_r6_E8bOORR5eFo&s=10",
+        "img2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPowLnD-BNUuZ82YrfC1WvUe-NmuzXgHvHptAe45fU_r6_E8bOORR5eFo&s=10",
         "badge": "Sale"
     },
     {
