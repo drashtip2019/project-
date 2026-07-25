@@ -260,6 +260,42 @@
                 addToCartBtn.addEventListener('mouseleave', () => {
                     addToCartBtn.style.background = '#1a1a1a';
                 });
+
+                addToCartBtn.addEventListener('click', () => {
+                    const name = document.getElementById('pd-title').innerText;
+                    let priceStr = document.getElementById('pd-price').innerText.replace('₹', '').replace(/,/g, '');
+                    const price = parseFloat(priceStr);
+                    const img = document.getElementById('pd-image').src;
+                    const qty = parseInt(document.getElementById('qty-input').value) || 1;
+                    
+                    let size = 'M';
+                    const activeSize = Array.from(document.querySelectorAll('.size-btn')).find(b => b.style.color === 'white');
+                    if (activeSize) size = activeSize.innerText;
+
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existing = cart.find(item => item.name === name && item.size === size);
+                    
+                    if (existing) {
+                        existing.quantity += qty;
+                    } else {
+                        cart.push({ name, price, img, quantity: qty, size });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    const originalHTML = addToCartBtn.innerHTML;
+                    addToCartBtn.innerHTML = '<i data-lucide="check"></i> Added!';
+                    lucide.createIcons();
+                    
+                    setTimeout(() => {
+                        addToCartBtn.innerHTML = originalHTML;
+                        lucide.createIcons();
+                    }, 2000);
+
+                    if (typeof window.updateCartCount === 'function') {
+                        window.updateCartCount();
+                    }
+                });
             }
         });
     </script>

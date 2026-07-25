@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VogueWear - Your Shopping Cart">
+    <title>VogueWear | Shopping Cart</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .cart-header { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+        .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        .cart-table th, .cart-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        .cart-table th { font-weight: 600; color: #666; text-transform: uppercase; font-size: 0.9rem; }
+        .cart-item { display: flex; align-items: center; gap: 20px; }
+        .cart-item img { width: 80px; height: 100px; object-fit: cover; border-radius: 8px; }
+        .cart-item-details h4 { margin-bottom: 5px; font-size: 1.1rem; }
+        .cart-item-details p { color: #666; font-size: 0.9rem; }
+        .remove-btn { color: #d32f2f; cursor: pointer; border: none; background: none; display: flex; align-items: center; gap: 5px; font-size: 0.9rem; }
+        .cart-summary { background: #f9f9f9; padding: 30px; border-radius: 12px; max-width: 400px; margin-left: auto; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 1.1rem; }
+        .summary-total { font-weight: 700; font-size: 1.4rem; border-top: 1px solid #ddd; padding-top: 15px; margin-top: 15px; }
+        .checkout-btn { width: 100%; padding: 15px; font-size: 1.1rem; border-radius: 8px; margin-top: 20px; }
+        .empty-cart { text-align: center; padding: 80px 20px; color: #666; }
+        .empty-cart i { width: 64px; height: 64px; color: #ccc; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="mouse-glow"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">VogueWear</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="women.html">Women</a>
+                <a href="men.html">Men</a>
+                <a href="accessories.html">Accessories</a>
+                <a href="service.html">Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button aria-label="Search" class="icon-btn"><i data-lucide="search"></i></button>
+                <button aria-label="Wishlist" class="icon-btn"><i data-lucide="heart"></i><span class="badge">3</span></button>
+                <button aria-label="Cart" class="icon-btn"><i data-lucide="shopping-bag"></i><span class="badge" style="display:none;">0</span></button>
+                <a href="login.html" class="icon-btn" aria-label="Profile"><i data-lucide="user"></i></a>
+                <button aria-label="Menu" class="icon-btn mobile-menu-btn" id="mobileMenuBtn"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 100px; min-height: 70vh;">
+        <div class="cart-container">
+            <h1 class="cart-header">Your Shopping Cart</h1>
+            <div id="cartContent">
+                <!-- Cart items will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>VogueWear</h2>
+                    <p>Elevating everyday style with premium, timeless fashion pieces.</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 VogueWear. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cartContent');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i data-lucide="shopping-bag"></i>
+                        <h2>Your cart is empty</h2>
+                        <p style="margin-top: 15px;"><a href="index.html" class="btn btn-primary">Continue Shopping</a></p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            let html = `
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Size</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+                html += `
+                    <tr>
+                        <td>
+                            <div class="cart-item">
+                                <img src="${item.img}" alt="${item.name}">
+                                <div class="cart-item-details">
+                                    <h4>${item.name}</h4>
+                                    <p>₹${item.price.toLocaleString('en-IN')}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${item.size}</td>
+                        <td>${item.quantity}</td>
+                        <td style="font-weight: 600;">₹${itemTotal.toLocaleString('en-IN')}</td>
+                        <td>
+                            <button class="remove-btn" onclick="removeFromCart(${index})">
+                                <i data-lucide="trash-2"></i> Remove
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>₹${grandTotal.toLocaleString('en-IN')}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span>₹${grandTotal.toLocaleString('en-IN')}</span>
+                    </div>
+                    <button class="btn btn-primary checkout-btn" onclick="alert('Checkout process started!')">Proceed to Checkout</button>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+            if(window.updateCartCount) window.updateCartCount();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>

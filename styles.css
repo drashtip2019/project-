@@ -1880,3 +1880,34 @@ ul {
         grid-template-columns:1fr;
     }
 }
+
+/* Added for hover effect on product actions */
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-actions {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: bottom 0.3s ease-in-out;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+}
+
+.product-card:hover .product-actions {
+    bottom: 0;
+}
+
+.product-actions .btn {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
