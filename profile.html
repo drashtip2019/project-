@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | VogueWear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e6f5ff 0%, #fff 50%, #fff5ff 100%);
+        }
+
+        .page-wrapper {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .brand-header {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-card {
+            background: linear-gradient(135deg, rgba(230, 245, 255, 0.6) 0%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 245, 255, 0.6) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            border-radius: 24px;
+            width: 450px;
+            max-width: 100%;
+            padding: 40px 35px;
+            box-shadow: 0 15px 30px rgba(100, 200, 255, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .form-card::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, #e6f5ff 0%, #fff 50%, #fff5ff 100%);
+            border-radius: 35px;
+            filter: blur(40px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1f2a3c 0%, #151e2b 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .card-email {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .info-group {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-icon {
+            font-size: 20px;
+            color: #5eacff;
+            width: 24px;
+            text-align: center;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #ff4b4b 0%, #d82b2b 100%);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(255, 75, 75, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #ff5e5e 0%, #e63939 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 75, 75, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0,0,0,0.1);
+            border-top-color: #5eacff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <a href="index.html" class="brand-header">
+            <i class="fas fa-arrow-left" style="color: #000; font-size: 20px;"></i>
+            <span class="brand-name">Back to Home</span>
+        </a>
+        <main class="content-wrapper">
+            <div class="form-card" id="profile-card">
+                <div class="loader" id="loading-state">
+                    <div class="spinner"></div>
+                    <p style="color: #666;">Loading Profile...</p>
+                </div>
+
+                <div id="user-info" style="display: none; width: 100%; flex-direction: column; align-items: center;">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h1 class="card-title" id="user-name">User Name</h1>
+                    <p class="card-email" id="user-email">user@example.com</p>
+                    
+                    <div class="info-group">
+                        <i class="fas fa-id-card info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">User ID</span>
+                            <span class="info-value" id="user-id">...</span>
+                        </div>
+                    </div>
+
+                    <div class="info-group">
+                        <i class="fas fa-clock info-icon"></i>
+                        <div class="info-text">
+                            <span class="info-label">Account Created</span>
+                            <span class="info-value" id="user-created">...</span>
+                        </div>
+                    </div>
+
+                    <button class="submit-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCi1fyYVp1X41gB0H1YI9JfunLIj2hnAJs",
+            authDomain: "login-auth-d6a48.firebaseapp.com",
+            projectId: "login-auth-d6a48",
+            storageBucket: "login-auth-d6a48.firebasestorage.app",
+            messagingSenderId: "28705543487",
+            appId: "1:28705543487:web:c63037013ccc8edf72ef8a"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('user-info').style.display = 'flex';
+                
+                document.getElementById('user-name').textContent = user.displayName || 'Fashion Enthusiast';
+                document.getElementById('user-email').textContent = user.email;
+                document.getElementById('user-id').textContent = user.uid;
+                
+                // Format creation time
+                const creationTime = user.metadata.creationTime ? new Date(user.metadata.creationTime) : new Date();
+                document.getElementById('user-created').textContent = creationTime.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            } else {
+                // No user is signed in, redirect to login
+                window.location.href = 'login.html';
+            }
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Sign-out successful, redirect to home or login
+                window.location.href = 'index.html';
+            }).catch((error) => {
+                alert('Error signing out: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>
