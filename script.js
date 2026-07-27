@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 899.00,
             oldPrice: 1199.00,
             img1: "https://teakwoodleathers.com/cdn/shop/files/T_BT_948_HY_BL_1080x.jpg?v=1729592692",
-            img2: "https://teakwoodleathers.com/cdn/shop/products/T_BT_757_SN_NSL1_1080x.jpg?v=1666871326"
+            img2: "https://teakwoodleathers.com/cdn/shop/products/T_BT_757_SN_NSL1_1080x.jpg?v=1666871326",
             badge: "Sale"
         },
         {
