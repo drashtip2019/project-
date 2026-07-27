@@ -561,6 +561,18 @@ document.addEventListener('DOMContentLoaded', () => {
         "img2": "https://loremflickr.com/600/800/jacket,leather,man",
         "badge": null
     }
+],
+        {
+    name: "Shirt",
+    price: "$99",
+    image: "https://example.com/shirt.jpg"
+},
+
+{
+    name: "Women's Kurti",
+    price: "₹999",
+    image: "https://your-image-link.jpg"
+}
 ];
 
     // Detect current page and filter products
