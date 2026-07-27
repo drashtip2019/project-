@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "name": "Traditional Gold-Plated Bangles Set",
         "price": 499,
         "oldPrice": 699,
-        "img1": "https://loremflickr.com/600/800/bangles,gold",
-        "img2": "https://loremflickr.com/600/800/bangles,traditional",
+        "img1": "https://smarsjewelry.com/cdn/shop/files/Gemini_Generated_Image_gv4jw0gv4jw0gv4j.png?v=1782880650",
+        "img2": "https://smarsjewelry.com/cdn/shop/files/Gemini_Generated_Image_gv4jw0gv4jw0gv4j.png?v=1782880650",
         "badge": "Sale"
     },
     {
@@ -561,20 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "img2": "https://loremflickr.com/600/800/jacket,leather,man",
         "badge": null
     }
-],
-        {
-    name: "Shirt",
-    price: "$99",
-    image: "https://example.com/shirt.jpg"
-},
-
-{
-    name: "Women's Kurti",
-    price: "₹999",
-    image: "https://your-image-link.jpg"
-}
 ];
-
     // Detect current page and filter products
     const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
     let filteredProducts = products;
